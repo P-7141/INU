@@ -1,11 +1,7 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -42,6 +38,7 @@ public class Main extends Application {
 
         //======================
         TextField text1 = new TextField();
+        text1.getStyleClass().add("my-field");
         TextField text2 = new TextField();
         text2.setLayoutX(10);
         text2.setLayoutY(60);
@@ -109,6 +106,9 @@ public class Main extends Application {
 
         button3.setOnAction(
                 actionEvent -> {
+                    if (text1.getText().matches("(JA|BD|DS [0-9]{2}[ZLzl][0-9]{2}[a-z])"))
+                        System.out.println("OK");
+
                     if (radioButton1.isSelected())
                         System.out.println("Radio1 wybrany");
 
@@ -121,6 +121,7 @@ public class Main extends Application {
                         );
                     }
                 });
+
 
         //primaryStage.setTitle("Hello World");
         primaryStage.setScene(scene);
